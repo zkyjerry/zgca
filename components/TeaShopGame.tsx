@@ -9,9 +9,9 @@ import { useDialogueTree } from "@/dialogue/useDialogueTree";
 import openingDialogue from "@/data/dialogues/opening.json";
 
 const initialHud: TeaShopHudState = {
-  status: "在店里走走看，靠近物品会出现互动提示。",
-  speaker: "店内广播",
-  dialog: "欢迎来到 Boba House。方向键或 WASD 移动，按 E 与物品互动。",
+  status: "在奶茶街区逛逛看，靠近物品会出现互动提示。",
+  speaker: "街区广播",
+  dialog: "欢迎来到 Boba House 街区。方向键或 WASD 移动，按 E 与物品互动。",
 };
 
 type TeaShopGameProps = {
@@ -100,8 +100,8 @@ export default function TeaShopGame({ onBackToMenu }: TeaShopGameProps) {
         <aside className="hudPanel" aria-live="polite">
           <div className="brandBlock">
             <span className="eyebrow">Pixel Tea Shop</span>
-            <h1>Boba House</h1>
-            <p>一间带着茶香、封口机声音和下午光线的小奶茶店。</p>
+            <h1>Boba Block</h1>
+            <p>从奶茶店出门，沿街去外卖驿站、便利店和社区诊所转一圈。</p>
           </div>
 
           <div className="statusBox">

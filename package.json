@@ -12,12 +12,14 @@
     "next": "16.2.6",
     "phaser": "3.90.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "ws": "^8.21.0"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/ws": "^8.18.1",
     "typescript": "latest"
   }
 }

@@ -1,0 +1,257 @@
+.voiceDebugShell {
+  min-height: 100vh;
+  padding: clamp(18px, 4vw, 48px);
+  color: #231914;
+  background:
+    linear-gradient(90deg, rgba(35, 25, 20, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(35, 25, 20, 0.06) 1px, transparent 1px),
+    linear-gradient(135deg, #fff8e6 0%, #e9f1d9 42%, #ffd1b8 100%);
+  background-size: 22px 22px, 22px 22px, auto;
+}
+
+.voiceDebugHeader {
+  width: min(1180px, 100%);
+  margin: 0 auto 22px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+}
+
+.voiceDebugKicker,
+.panelIndex,
+.fieldStack span,
+.resultBox span,
+.eventLog span {
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.voiceDebugKicker {
+  color: #a3414a;
+}
+
+.voiceDebugHeader h1 {
+  margin: 7px 0 0;
+  font-size: clamp(38px, 7vw, 84px);
+  line-height: 0.9;
+  color: #362219;
+  text-shadow: 3px 3px 0 #ffd979;
+}
+
+.voiceDebugHeader p {
+  max-width: 390px;
+  margin: 0;
+  line-height: 1.6;
+  color: #5b463b;
+}
+
+.voiceDebugGrid {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+}
+
+.voicePanel {
+  min-width: 0;
+  border: 4px solid #362219;
+  border-radius: 8px;
+  background: rgba(255, 252, 235, 0.9);
+  box-shadow: 12px 12px 0 rgba(54, 34, 25, 0.16);
+  padding: 18px;
+  display: grid;
+  gap: 16px;
+}
+
+.asrPanel {
+  background:
+    radial-gradient(circle at 88% 8%, rgba(93, 140, 91, 0.22), transparent 22%),
+    rgba(255, 252, 235, 0.93);
+}
+
+.ttsPanel {
+  background:
+    radial-gradient(circle at 14% 10%, rgba(232, 121, 138, 0.22), transparent 22%),
+    rgba(255, 252, 235, 0.93);
+}
+
+.panelTitleRow {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.panelTitleRow h2 {
+  margin: 4px 0 0;
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1;
+}
+
+.panelIndex {
+  color: #5d8c5b;
+}
+
+.statusPill {
+  max-width: 220px;
+  padding: 7px 9px;
+  border: 2px solid #362219;
+  border-radius: 999px;
+  background: #fff1c7;
+  color: #513528;
+  font-size: 12px;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.statusPill.live {
+  background: #ff8d9b;
+  color: #3b1218;
+}
+
+.meterStrip {
+  height: 74px;
+  display: grid;
+  grid-template-columns: repeat(28, 1fr);
+  gap: 5px;
+  align-items: center;
+  border: 3px solid #362219;
+  border-radius: 6px;
+  padding: 10px;
+  background: #241916;
+}
+
+.meterBar {
+  height: 12px;
+  background: #755447;
+  border-radius: 2px;
+}
+
+.meterBar.active {
+  animation: pulseBar 760ms infinite ease-in-out alternate;
+  background: #ffd979;
+}
+
+.meterBar:nth-child(3n).active {
+  animation-delay: 120ms;
+}
+
+.meterBar:nth-child(4n).active {
+  animation-delay: 260ms;
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 42px;
+  border: 3px solid #362219;
+  border-radius: 6px;
+  padding: 0 16px;
+  color: #251711;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: inset 0 -4px 0 rgba(54, 34, 25, 0.22);
+}
+
+.primaryButton {
+  background: #ffd979;
+}
+
+.secondaryButton {
+  background: #b8dcc0;
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.resultBox,
+.eventLog,
+.audioDock {
+  border: 3px solid #362219;
+  border-radius: 6px;
+  background: rgba(255, 255, 247, 0.76);
+  padding: 12px;
+}
+
+.resultBox p {
+  min-height: 76px;
+  margin: 9px 0 0;
+  font-size: 20px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.eventLog pre {
+  max-height: 260px;
+  margin: 9px 0 0;
+  overflow: auto;
+  color: #2b201c;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.fieldStack {
+  display: grid;
+  gap: 8px;
+}
+
+.fieldStack textarea,
+.fieldStack input {
+  width: 100%;
+  border: 3px solid #362219;
+  border-radius: 6px;
+  background: #fffdf0;
+  color: #231914;
+  font: inherit;
+  padding: 12px;
+  outline: none;
+}
+
+.fieldStack textarea:focus,
+.fieldStack input:focus {
+  box-shadow: 0 0 0 4px rgba(255, 217, 121, 0.55);
+}
+
+.audioDock {
+  min-height: 82px;
+  display: grid;
+  place-items: center;
+}
+
+.audioDock audio {
+  width: 100%;
+}
+
+@keyframes pulseBar {
+  from {
+    height: 12px;
+  }
+
+  to {
+    height: 52px;
+  }
+}
+
+@media (max-width: 900px) {
+  .voiceDebugHeader,
+  .voiceDebugGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .voiceDebugHeader {
+    display: grid;
+    align-items: start;
+  }
+}
