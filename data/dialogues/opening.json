@@ -1,0 +1,490 @@
+{
+  "start": "start_intro_1",
+  "nodes": {
+    "start_intro_1": {
+      "speaker": "店长",
+      "text": "欢迎来到“一线一天”奶茶店。今天你不是顾客，而是一名新来的店员。",
+      "next": "start_intro_2"
+    },
+    "start_intro_2": {
+      "speaker": "店长",
+      "text": "你的工作包括点单、确认糖冰、制作饮品、核对小票、封口出杯，还要在高峰期保持耐心。",
+      "next": "start_intro_3"
+    },
+    "start_intro_3": {
+      "speaker": "店长",
+      "text": "听起来简单吗？等订单多起来，你就知道每一杯奶茶都没有那么轻松。",
+      "next": "duty_intro_1"
+    },
+    "duty_intro_1": {
+      "speaker": "系统提示",
+      "text": "今日岗位：点单兼制作。基础流程：接待顾客、确认饮品、制作、封口、贴单、核对、叫号出杯，再清理台面准备下一单。",
+      "next": "duty_intro_2"
+    },
+    "duty_intro_2": {
+      "speaker": "系统提示",
+      "text": "请记住：速度重要，但准确和沟通同样重要。",
+      "next": "first_order_1"
+    },
+    "first_order_1": {
+      "speaker": "顾客A",
+      "text": "你好，我要一杯黑糖珍珠奶茶，少冰，七分糖。",
+      "next": "first_order_2"
+    },
+    "first_order_2": {
+      "speaker": "你",
+      "text": "好的，一杯黑糖珍珠奶茶，少冰，七分糖。请稍等。",
+      "next": "make_drink_1"
+    },
+    "make_drink_1": {
+      "speaker": "系统提示",
+      "text": "你拿起杯子，加入茶底、牛奶、黑糖浆和珍珠。珍珠桶快见底了，但小票机已经又打印出两张单。",
+      "next": "make_drink_2"
+    },
+    "make_drink_2": {
+      "speaker": "系统提示",
+      "text": "你需要先完成手上的订单，再提醒同事补料。第一杯看似顺利，但你的手已经开始加快。",
+      "next": "first_success"
+    },
+    "first_success": {
+      "speaker": "你",
+      "text": "您好，您的黑糖珍珠奶茶好了，请慢用。",
+      "next": "rush_start_1"
+    },
+    "rush_start_1": {
+      "speaker": "系统提示",
+      "text": "午后高峰开始了。堂食顾客在排队，外卖订单不断打印，制作区已经堆了六张小票。",
+      "next": "rush_start_2"
+    },
+    "rush_start_2": {
+      "speaker": "同事",
+      "text": "现在先按顺序做，别乱。错一杯比慢一分钟更麻烦。",
+      "next": "customer_complain_1"
+    },
+    "customer_complain_1": {
+      "speaker": "顾客B",
+      "text": "我都等十分钟了，怎么还没好？你们是不是故意拖？",
+      "next": "customer_complain_choice"
+    },
+    "customer_complain_choice": {
+      "speaker": "系统提示",
+      "text": "这是今天第一次明显冲突。你很紧张，手里还拿着正在封口的饮品。",
+      "choices": [
+        {
+          "label": "耐心解释情况",
+          "next": "calm_explain_1"
+        },
+        {
+          "label": "只说“马上好”，继续低头做",
+          "next": "silent_work_1"
+        },
+        {
+          "label": "情绪化回应“又不是只有你一单”",
+          "next": "angry_reply_1"
+        }
+      ]
+    },
+    "calm_explain_1": {
+      "speaker": "你",
+      "text": "不好意思让您久等了。现在前面还有三单，我会按顺序尽快做，避免拿错或做错。",
+      "next": "calm_explain_2"
+    },
+    "calm_explain_2": {
+      "speaker": "顾客B",
+      "text": "那还要多久？",
+      "next": "calm_explain_3"
+    },
+    "calm_explain_3": {
+      "speaker": "你",
+      "text": "大约还需要五分钟。如果您赶时间，我也可以帮您看一下有没有更快出的饮品。",
+      "next": "calm_explain_4"
+    },
+    "calm_explain_4": {
+      "speaker": "系统提示",
+      "text": "顾客虽然仍不太高兴，但语气缓和了一些。",
+      "next": "second_pressure_1"
+    },
+    "silent_work_1": {
+      "speaker": "你",
+      "text": "马上好。",
+      "next": "silent_work_2"
+    },
+    "silent_work_2": {
+      "speaker": "系统提示",
+      "text": "你没有解释太多，只是加快动作。顾客站在取餐台前一直盯着你。",
+      "next": "silent_work_3"
+    },
+    "silent_work_3": {
+      "speaker": "顾客B",
+      "text": "每次都说马上好，到底什么时候？",
+      "next": "second_pressure_1"
+    },
+    "angry_reply_1": {
+      "speaker": "你",
+      "text": "又不是只有您一单，大家都在等。",
+      "next": "angry_reply_2"
+    },
+    "angry_reply_2": {
+      "speaker": "顾客B",
+      "text": "你这是什么态度？我要投诉你。",
+      "next": "conflict_escalate_1"
+    },
+    "conflict_escalate_1": {
+      "speaker": "店长",
+      "text": "先停一下，我来沟通。你继续做单。",
+      "next": "conflict_escalate_2"
+    },
+    "conflict_escalate_2": {
+      "speaker": "系统提示",
+      "text": "情绪化表达让问题变得更复杂，原本只是等待问题，现在变成了服务态度问题。",
+      "next": "second_pressure_bad_1"
+    },
+    "second_pressure_1": {
+      "speaker": "系统提示",
+      "text": "你继续制作饮品。小票机又响了，外卖订单和堂食订单同时挤进来。",
+      "next": "second_pressure_2"
+    },
+    "second_pressure_2": {
+      "speaker": "外卖骑手",
+      "text": "32号好了没？我快超时了，平台要扣钱的。",
+      "next": "second_pressure_3"
+    },
+    "second_pressure_3": {
+      "speaker": "顾客C",
+      "text": "我孩子等着喝，能不能先做我的？",
+      "next": "second_pressure_choice"
+    },
+    "second_pressure_choice": {
+      "speaker": "系统提示",
+      "text": "你同时面对堂食顾客和外卖骑手的催促。",
+      "choices": [
+        {
+          "label": "说明按顺序出餐，并给出预计时间",
+          "next": "queue_explain_1"
+        },
+        {
+          "label": "优先做催得最急的那一单",
+          "next": "break_order_1"
+        },
+        {
+          "label": "沉默加速，不回应任何人",
+          "next": "ignore_pressure_1"
+        }
+      ]
+    },
+    "second_pressure_bad_1": {
+      "speaker": "系统提示",
+      "text": "上一场冲突后，你的注意力被打乱了。取餐台前的人更多了。",
+      "next": "second_pressure_bad_2"
+    },
+    "second_pressure_bad_2": {
+      "speaker": "外卖骑手",
+      "text": "32号好了没？我快超时了。",
+      "next": "second_pressure_bad_choice"
+    },
+    "second_pressure_bad_choice": {
+      "speaker": "系统提示",
+      "text": "你很累，也很委屈，但现在仍需要处理眼前的局面。",
+      "choices": [
+        {
+          "label": "深呼吸，重新说明顺序",
+          "next": "queue_explain_recover_1"
+        },
+        {
+          "label": "烦躁地说“别催了”",
+          "next": "conflict_escalate_3"
+        }
+      ]
+    },
+    "queue_explain_1": {
+      "speaker": "你",
+      "text": "不好意思，现在我会按小票顺序出餐。32号前面还有两单，大概三分钟。",
+      "next": "queue_explain_2"
+    },
+    "queue_explain_2": {
+      "speaker": "你",
+      "text": "如果中间有缺料，我会第一时间说，不让大家白等。",
+      "next": "queue_explain_3"
+    },
+    "queue_explain_3": {
+      "speaker": "外卖骑手",
+      "text": "行，那我再等一下。",
+      "next": "queue_explain_4"
+    },
+    "queue_explain_4": {
+      "speaker": "系统提示",
+      "text": "清楚的信息不能消除等待，但能减少误会。",
+      "next": "special_request_1"
+    },
+    "queue_explain_recover_1": {
+      "speaker": "你",
+      "text": "抱歉，刚才我有点急。现在我重新确认一下顺序：32号前面还有两单，我会按顺序出餐。",
+      "next": "queue_explain_recover_2"
+    },
+    "queue_explain_recover_2": {
+      "speaker": "外卖骑手",
+      "text": "好，你说清楚就行。",
+      "next": "queue_explain_recover_3"
+    },
+    "queue_explain_recover_3": {
+      "speaker": "系统提示",
+      "text": "你没有让情绪继续扩大，局面被拉回来了。",
+      "next": "special_request_1"
+    },
+    "break_order_1": {
+      "speaker": "系统提示",
+      "text": "你先做了催得最急的一单。",
+      "next": "break_order_2"
+    },
+    "break_order_2": {
+      "speaker": "顾客C",
+      "text": "为什么他后来的先拿？那我也催是不是就能快点？",
+      "next": "break_order_3"
+    },
+    "break_order_3": {
+      "speaker": "系统提示",
+      "text": "短时间看似解决了一个问题，但破坏了排队公平，引发新的不满。",
+      "next": "fairness_conflict_1"
+    },
+    "ignore_pressure_1": {
+      "speaker": "系统提示",
+      "text": "你低头继续做，不回应任何人。",
+      "next": "ignore_pressure_2"
+    },
+    "ignore_pressure_2": {
+      "speaker": "外卖骑手",
+      "text": "你倒是说句话啊，到底还要多久？",
+      "next": "ignore_pressure_3"
+    },
+    "ignore_pressure_3": {
+      "speaker": "系统提示",
+      "text": "沉默让顾客无法判断情况，焦虑继续上升。",
+      "next": "fairness_conflict_1"
+    },
+    "conflict_escalate_3": {
+      "speaker": "你",
+      "text": "别催了，我已经很忙了！",
+      "next": "conflict_escalate_4"
+    },
+    "conflict_escalate_4": {
+      "speaker": "外卖骑手",
+      "text": "我也在工作啊，我超时也要被扣钱！",
+      "next": "bad_ending"
+    },
+    "fairness_conflict_1": {
+      "speaker": "顾客C",
+      "text": "你们是不是谁催得凶就先给谁做？",
+      "next": "fairness_conflict_choice"
+    },
+    "fairness_conflict_choice": {
+      "speaker": "系统提示",
+      "text": "因为没有提前说明规则，顾客开始怀疑你的公平性。",
+      "choices": [
+        {
+          "label": "承认处理不妥，重新按顺序说明",
+          "next": "recover_fairness_1"
+        },
+        {
+          "label": "辩解“我只是想快点处理”",
+          "next": "defend_self_1"
+        }
+      ]
+    },
+    "recover_fairness_1": {
+      "speaker": "你",
+      "text": "不好意思，刚才处理得不够好。后面我会按小票顺序来，并告诉大家大概等待时间。",
+      "next": "recover_fairness_2"
+    },
+    "recover_fairness_2": {
+      "speaker": "顾客C",
+      "text": "那你早说清楚嘛。",
+      "next": "recover_fairness_3"
+    },
+    "recover_fairness_3": {
+      "speaker": "系统提示",
+      "text": "承认问题并不丢脸，它能让沟通重新开始。",
+      "next": "special_request_1"
+    },
+    "defend_self_1": {
+      "speaker": "你",
+      "text": "我只是想快点处理，你们也不能一直催。",
+      "next": "defend_self_2"
+    },
+    "defend_self_2": {
+      "speaker": "顾客C",
+      "text": "那我们等这么久还不能问了？",
+      "next": "bad_ending"
+    },
+    "special_request_1": {
+      "speaker": "顾客D",
+      "text": "我要一杯热饮，但是帮我加冰块。",
+      "next": "special_request_2"
+    },
+    "special_request_2": {
+      "speaker": "你",
+      "text": "您好，这款热饮按规定不能加冰，可能会影响杯体和口感。",
+      "next": "special_request_3"
+    },
+    "special_request_3": {
+      "speaker": "顾客D",
+      "text": "我就要加，你们别那么死板。",
+      "next": "special_request_choice"
+    },
+    "special_request_choice": {
+      "speaker": "系统提示",
+      "text": "顾客提出了不符合门店规则的特殊要求。你需要拒绝，但不能激化矛盾。",
+      "choices": [
+        {
+          "label": "解释原因，并提供替代方案",
+          "next": "offer_alternative_1"
+        },
+        {
+          "label": "直接说“不行”",
+          "next": "direct_refuse_1"
+        },
+        {
+          "label": "违规满足顾客要求",
+          "next": "break_rule_1"
+        }
+      ]
+    },
+    "offer_alternative_1": {
+      "speaker": "你",
+      "text": "抱歉，这款热饮不能直接加冰。但我可以帮您换成同口味的少冰版本，或者推荐一款口感接近的冷饮。",
+      "next": "offer_alternative_2"
+    },
+    "offer_alternative_2": {
+      "speaker": "顾客D",
+      "text": "那换少冰吧。",
+      "next": "offer_alternative_3"
+    },
+    "offer_alternative_3": {
+      "speaker": "系统提示",
+      "text": "拒绝不是冲突的开始，关键是给出原因和替代方案。",
+      "next": "final_rush_1"
+    },
+    "direct_refuse_1": {
+      "speaker": "你",
+      "text": "不行，这个不能做。",
+      "next": "direct_refuse_2"
+    },
+    "direct_refuse_2": {
+      "speaker": "顾客D",
+      "text": "你态度怎么这么差？不能做也要好好说吧。",
+      "next": "final_rush_harder_1"
+    },
+    "break_rule_1": {
+      "speaker": "系统提示",
+      "text": "你为了避免争执，违规给热饮加了冰。",
+      "next": "break_rule_2"
+    },
+    "break_rule_2": {
+      "speaker": "同事",
+      "text": "这个不能这样做，出问题还是算我们责任。",
+      "next": "break_rule_3"
+    },
+    "break_rule_3": {
+      "speaker": "系统提示",
+      "text": "一味退让不等于服务好，有些规则是为了安全和质量。",
+      "next": "final_rush_harder_1"
+    },
+    "final_rush_1": {
+      "speaker": "系统提示",
+      "text": "高峰最后一波来了。你已经连续站了很久，手套里都是水汽，小腿开始发酸。",
+      "next": "final_rush_2"
+    },
+    "final_rush_2": {
+      "speaker": "同事",
+      "text": "珍珠补好了，封口机也空出来了。我们把这几单清完。",
+      "next": "final_rush_3"
+    },
+    "final_rush_3": {
+      "speaker": "系统提示",
+      "text": "你开始熟悉节奏：确认、制作、核对、出杯、解释等待。",
+      "next": "last_customer_1"
+    },
+    "final_rush_harder_1": {
+      "speaker": "系统提示",
+      "text": "因为前面的沟通不够顺畅，取餐区聚集了更多焦急的顾客。",
+      "next": "final_rush_harder_2"
+    },
+    "final_rush_harder_2": {
+      "speaker": "同事",
+      "text": "先稳住，别再乱顺序了。越急越容易错。",
+      "next": "last_customer_1"
+    },
+    "last_customer_1": {
+      "speaker": "顾客B",
+      "text": "我的好了？",
+      "next": "last_customer_2"
+    },
+    "last_customer_2": {
+      "speaker": "你",
+      "text": "好了，抱歉让您久等。这杯是黑糖珍珠奶茶，少冰七分糖，请您确认一下。",
+      "next": "last_customer_3"
+    },
+    "last_customer_3": {
+      "speaker": "顾客B",
+      "text": "嗯，是我的。",
+      "next": "last_customer_choice"
+    },
+    "last_customer_choice": {
+      "speaker": "系统提示",
+      "text": "你把饮品递出去，才发现自己一直没有时间喝水。",
+      "choices": [
+        {
+          "label": "微笑说“谢谢等待”",
+          "next": "good_ending"
+        },
+        {
+          "label": "什么都不说，继续下一单",
+          "next": "normal_ending"
+        },
+        {
+          "label": "小声叹气，把情绪先压下来",
+          "next": "tired_reflection"
+        }
+      ]
+    },
+    "tired_reflection": {
+      "speaker": "系统提示",
+      "text": "你很累，差点把抱怨说出口。你意识到，疲惫是真实的，但表达方式会影响别人如何理解你。",
+      "next": "normal_ending"
+    },
+    "good_ending": {
+      "speaker": "系统提示",
+      "text": "结局：被看见的辛苦。顾客说刚才自己也有点急了，你们确实挺忙。你完成了许多杯饮品，也学会了在压力中沟通。",
+      "next": "good_reflection"
+    },
+    "good_reflection": {
+      "speaker": "反思提示",
+      "text": "一线服务不是简单重复劳动，而是在时间、规则、情绪和责任之间不断平衡。耐心沟通不能解决所有问题，但能减少很多不必要的冲突。",
+      "next": "end"
+    },
+    "normal_ending": {
+      "speaker": "系统提示",
+      "text": "结局：撑过高峰。高峰逐渐过去，你终于有时间靠在吧台边喝一口水。",
+      "next": "normal_reflection"
+    },
+    "normal_reflection": {
+      "speaker": "反思提示",
+      "text": "很多一线劳动者并不是不想解释，而是他们常常连解释的时间都没有。被理解的一句“辛苦了”，有时很重要。",
+      "next": "end"
+    },
+    "bad_ending": {
+      "speaker": "系统提示",
+      "text": "结局：失控的取餐台。顾客投诉、骑手催促、同事补救，局面越来越乱。",
+      "next": "bad_reflection"
+    },
+    "bad_reflection": {
+      "speaker": "反思提示",
+      "text": "累是真的，但持续情绪化表达会让等待问题变成态度问题，让本来可以沟通的矛盾升级。",
+      "next": "end"
+    },
+    "end": {
+      "speaker": "",
+      "text": "",
+      "end": true
+    }
+  }
+}

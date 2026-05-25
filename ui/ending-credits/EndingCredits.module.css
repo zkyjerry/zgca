@@ -1,0 +1,93 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow: hidden;
+  background: #050505;
+  color: #ffffff;
+}
+
+.fadeTop,
+.fadeBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 28vh;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fadeTop {
+  top: 0;
+  background: linear-gradient(180deg, #050505 0%, rgba(5, 5, 5, 0) 100%);
+}
+
+.fadeBottom {
+  bottom: 0;
+  background: linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, 0) 100%);
+}
+
+.roll {
+  width: min(720px, calc(100vw - 48px));
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
+  text-align: center;
+  animation: endingCreditsRoll 42s linear forwards;
+}
+
+.title {
+  margin: 0 0 28px;
+  font-size: clamp(32px, 7vw, 56px);
+  letter-spacing: 0.08em;
+}
+
+.paragraph {
+  margin: 0;
+  font-size: clamp(18px, 3vw, 26px);
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+}
+
+.strongLine {
+  margin: 8px 0;
+  font-size: clamp(24px, 5vw, 40px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.footer {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  z-index: 3;
+  transform: translateX(-50%);
+}
+
+.backButton {
+  min-width: 160px;
+  min-height: 46px;
+  border: 1px solid #ffffff;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+.backButton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+@keyframes endingCreditsRoll {
+  from {
+    transform: translateY(100vh);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}

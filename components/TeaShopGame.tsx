@@ -2,6 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createTeaShopGame, type TeaShopHudState } from "@/game/createTeaShopGame";
+import { PauseOverlay } from "@/ui/pause-overlay";
+import { DialogueBox } from "@/ui/dialogue-box";
+import { EndingCredits } from "@/ui/ending-credits";
+import { useDialogueTree } from "@/dialogue/useDialogueTree";
+import openingDialogue from "@/data/dialogues/opening.json";
 
 const initialHud: TeaShopHudState = {
   status: "在店里走走看，靠近物品会出现互动提示。",
@@ -9,9 +14,28 @@ const initialHud: TeaShopHudState = {
   dialog: "欢迎来到 Boba House。方向键或 WASD 移动，按 E 与物品互动。",
 };
 
-export default function TeaShopGame() {
+type TeaShopGameProps = {
+  onBackToMenu?: () => void;
+};
+
+type RuntimeGame = {
+  destroy: (removeCanvas: boolean) => void;
+  scene: {
+    pause: (key: string) => void;
+    resume: (key: string) => void;
+  };
+};
+
+export default function TeaShopGame({ onBackToMenu }: TeaShopGameProps) {
   const mountRef = useRef<HTMLDivElement | null>(null);
+  const gameRef = useRef<RuntimeGame | null>(null);
   const [hud, setHud] = useState<TeaShopHudState>(initialHud);
+  const [paused, setPaused] = useState(false);
+  const [muted, setMuted] = useState(false);
+  const [showCredits, setShowCredits] = useState(false);
+  const wasDialogueActiveRef = useRef(false);
+  const dialogue = useDialogueTree(openingDialogue);
+  const gameplayPaused = paused || dialogue.isActive || showCredits;
 
   useEffect(() => {
     if (!mountRef.current) {
@@ -19,7 +43,7 @@ export default function TeaShopGame() {
     }
 
     let cancelled = false;
-    let game: { destroy: (removeCanvas: boolean) => void } | null = null;
+    let game: RuntimeGame | null = null;
 
     createTeaShopGame(mountRef.current, (nextHud) => {
       if (!cancelled) {
@@ -31,14 +55,40 @@ export default function TeaShopGame() {
         return;
       }
 
-      game = createdGame;
+      game = createdGame as RuntimeGame;
+      gameRef.current = game;
     });
 
     return () => {
       cancelled = true;
+      gameRef.current = null;
       game?.destroy(true);
     };
   }, []);
+
+  useEffect(() => {
+    if (!gameRef.current) {
+      return;
+    }
+
+    if (gameplayPaused) {
+      gameRef.current.scene.pause("TeaShopScene");
+      return;
+    }
+
+    gameRef.current.scene.resume("TeaShopScene");
+  }, [gameplayPaused]);
+
+  useEffect(() => {
+    if (dialogue.isActive) {
+      wasDialogueActiveRef.current = true;
+      return;
+    }
+
+    if (wasDialogueActiveRef.current) {
+      setShowCredits(true);
+    }
+  }, [dialogue.isActive]);
 
   return (
     <main className="shell">
@@ -72,6 +122,36 @@ export default function TeaShopGame() {
           </div>
         </aside>
       </section>
+      {!showCredits ? (
+        <PauseOverlay
+          paused={paused}
+          muted={muted}
+          onPause={() => setPaused(true)}
+          onResume={() => setPaused(false)}
+          onBackToMenu={() => {
+            setPaused(false);
+            onBackToMenu?.();
+          }}
+          onToggleMute={() => setMuted((prev) => !prev)}
+        />
+      ) : null}
+      {dialogue.isActive && dialogue.currentNode ? (
+        <DialogueBox
+          speaker={dialogue.currentNode.speaker}
+          text={dialogue.currentNode.text}
+          choices={dialogue.currentNode.choices}
+          onNext={dialogue.goNext}
+          onChoose={dialogue.choose}
+        />
+      ) : null}
+      {showCredits ? (
+        <EndingCredits
+          onBackToMenu={() => {
+            setShowCredits(false);
+            onBackToMenu?.();
+          }}
+        />
+      ) : null}
     </main>
   );
 }

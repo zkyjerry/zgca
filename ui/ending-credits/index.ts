@@ -1,0 +1,1 @@
+export { EndingCredits } from "./EndingCredits";
